@@ -2,22 +2,27 @@
 
 This template should be used for every Python project in the lab. It uses:
 
-- `uv` for dependency management.
-- `ruff` for code formatting.
-- `pyright` for type checking.
-- Pre-commit hooks for automated validation.
+- [`uv`](https://docs.astral.sh/uv/) for dependency management.
+- [`ruff`](https://docs.astral.sh/ruff/) for code formatting.
+- [`pyright`](https://github.com/microsoft/pyright) for type checking.
+- [pre-commit](https://pre-commit.com/) hooks for automated validation.
 
 ## Pre-commit hooks
 
-First, set up the [pre-commit hooks](https://pre-commit.com/):
+First, install [pre-commit](https://pre-commit.com/):
+
+```sh
+pip install pre-commit
+```
+
+Then, install the pre-commit hooks:
 
 ```sh
 pre-commit install
 ```
 
-Upon the first commit, the hooks will be installed and run, to validate that
-all changes are compatible with the requirements imposed by the configuration
-defined in `.pre-commit-config.yaml`.
+This will create a `.git/hooks/pre-commit` file that will run the pre-commit
+hooks every time you commit. Upon the first commit, the hooks will be installed.
 
 Some hooks output error message that require a manual change (e.g., linting
 errors). Other hooks perform automated fixes. Either way, you need to re-run
@@ -40,10 +45,11 @@ of your code. One of the pre-commit hooks is [`pyright`](https://github.com/micr
 which will perform type checking when hints are available. This reduces greatly the
 risk of bugs and the maintainability of the code.
 
-## Dependency mangement
+## Dependency management
 
-We use [`uv`](https://docs.astral.sh/uv/) for dependency management. It is as
-full-featured and much faster than `poetry`.
+We use [`uv`](https://docs.astral.sh/uv/) for dependency management. It is just as
+full-featured as `poetry`, but much faster. Follow the instructions below to
+create a new project:
 
 1. Update the name of the project in `pyproject.toml`.
 2. Add the dependencies you need (and run this same command every time you need
