@@ -3,6 +3,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# User defined folders
+docs/ 
+data/
+containers/
+models/
+
+# Data files.
+*.csv
+*.xlsx
+*.xls
+*.json
+*.zip
+
 # C extensions
 *.so
 
